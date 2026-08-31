@@ -7,6 +7,7 @@ import {
   Bell,
   Settings,
   ShieldCheck,
+  Brain,
 } from "lucide-react";
 import clsx from "clsx";
 
@@ -15,6 +16,7 @@ const nav = [
   { to: "/devices", label: "Devices", icon: Cpu },
   { to: "/threats", label: "Threats", icon: ShieldAlert },
   { to: "/network", label: "Network", icon: Network },
+  { to: "/federated-learning", label: "Federated Learning", icon: Brain },
   { to: "/alerts", label: "Alerts", icon: Bell },
   { to: "/settings", label: "Settings", icon: Settings },
 ];

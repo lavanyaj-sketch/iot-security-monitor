@@ -1,3 +1,6 @@
+@import url("./layout.css");
+@import url("./pages.css");
+
 :root {
   /* Color system */
   --c-primary-50: #eff6ff;
@@ -70,9 +73,6 @@
   --sidebar-w: 248px;
   --header-h: 64px;
 }
-
-@import url("./layout.css");
-@import url("./pages.css");
 
 * {
   box-sizing: border-box;
