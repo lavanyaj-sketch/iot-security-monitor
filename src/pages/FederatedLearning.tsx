@@ -15,21 +15,7 @@ import {
   ZAxis,
   Cell,
 } from "recharts";
-import {
-  Brain,
-  Cpu,
-  Wifi,
-  Shield,
-  TrendingUp,
-  Layers,
-  Activity,
-  Clock,
-  CheckCircle2,
-  XCircle,
-  Loader2,
-  Server,
-  Gauge,
-} from "lucide-react";
+import { Brain, Cpu, Wifi, Shield, TrendingUp, Layers, Activity, Clock, CircleCheck as CheckCircle2, Circle as XCircle, Loader as Loader2, Server, Gauge } from "lucide-react";
 import StatCard from "../components/StatCard";
 import { supabase, FLRound, FLDeviceContribution, FLModelHistory } from "../lib/supabase";
 
