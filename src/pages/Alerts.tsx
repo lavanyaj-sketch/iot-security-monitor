@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bell, CheckCircle2, Clock, AlertTriangle } from "lucide-react";
+import { Bell, CircleCheck as CheckCircle2, Clock, TriangleAlert as AlertTriangle } from "lucide-react";
 import { alerts, AlertItem, AlertStatus } from "../data/mockData";
 import { SeverityPill } from "../components/Pills";
 

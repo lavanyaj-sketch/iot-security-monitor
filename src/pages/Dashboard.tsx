@@ -1,11 +1,4 @@
-import {
-  Cpu,
-  ShieldAlert,
-  Activity,
-  ArrowUpRight,
-  AlertTriangle,
-  Info,
-} from "lucide-react";
+import { Cpu, ShieldAlert, Activity, ArrowUpRight, TriangleAlert as AlertTriangle, Info } from "lucide-react";
 import {
   AreaChart,
   Area,
