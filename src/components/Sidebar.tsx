@@ -8,6 +8,9 @@ import {
   Settings,
   ShieldCheck,
   Brain,
+  Workflow,
+  Sparkles,
+  Link2,
 } from "lucide-react";
 import clsx from "clsx";
 
@@ -16,7 +19,10 @@ const nav = [
   { to: "/devices", label: "Devices", icon: Cpu },
   { to: "/threats", label: "Threats", icon: ShieldAlert },
   { to: "/network", label: "Network", icon: Network },
+  { to: "/pipeline", label: "ML Pipeline", icon: Workflow },
   { to: "/federated-learning", label: "Federated Learning", icon: Brain },
+  { to: "/xai", label: "XAI Explainability", icon: Sparkles },
+  { to: "/blockchain", label: "Trust & Blocking", icon: Link2 },
   { to: "/alerts", label: "Alerts", icon: Bell },
   { to: "/settings", label: "Settings", icon: Settings },
 ];
