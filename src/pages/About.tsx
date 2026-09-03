@@ -16,10 +16,10 @@ export default function About() {
           <div>
             <h2>SentinelIoT — Federated Learning IDS for Defence IoT</h2>
             <p>
-              This application demonstrates a complete intrusion detection pipeline built for military and
-              defence IoT environments. It combines Grey Wolf Optimizer feature selection, Bidirectional LSTM
-              deep learning, federated training across heterogeneous edge devices, SHAP explainability, and
-              blockchain-validated poison attack blocking — all in a single operator dashboard.
+              This application is a research prototype demonstrating an intrusion detection pipeline designed for
+              military and defence IoT environments. It combines Grey Wolf Optimizer feature selection, Bidirectional LSTM
+              deep learning, federated training across heterogeneous edge devices, SHAP explainability, and a
+              blockchain-validated trust layer for poison attack defense — all in a single operator dashboard.
             </p>
           </div>
         </div>
@@ -28,24 +28,24 @@ export default function About() {
 
       <div className="grid grid-cols-2" style={{ marginBottom: 20 }}>
         <div className="card">
-          <div className="card-header"><div><div className="card-title">How this application serves defence</div><div className="card-subtitle">Direct military and strategic value</div></div></div>
+          <div className="card-header"><div><div className="card-title">Applications</div><div className="card-subtitle">Direct military and strategic value</div></div></div>
           <div className="about-point-list">
             <AboutPoint icon={<Lock size={18} />} title="Data never leaves the edge" desc="Federated learning trains locally on each device. Only model updates are shared — raw sensor and network telemetry never leaves the battlefield device, preserving operational security." />
             <AboutPoint icon={<Crosshair size={18} />} title="Real-time threat detection" desc="The BiLSTM model detects intrusions, DDoS, reconnaissance, and credential attacks in real time across all connected defence IoT assets." />
             <AboutPoint icon={<Eye size={18} />} title="Explainable AI for operators" desc="Every detection includes SHAP-based evidence showing which features drove the decision, so defence operators can verify and act with confidence." />
-            <AboutPoint icon={<Link2 size={18} />} title="Poison attack immunity" desc="Blockchain validation blocks compromised nodes before their updates reach the global model, preventing adversarial manipulation of the defence system." />
+            <AboutPoint icon={<Link2 size={18} />} title="Poison attack defense" desc="A blockchain trust layer validates model updates and blocks compromised nodes before their updates reach the global model, preventing adversarial manipulation." />
           </div>
         </div>
 
         <div className="card">
           <div className="card-header"><div><div className="card-title">The complete pipeline</div><div className="card-subtitle">From raw IoT telemetry to operator response</div></div></div>
           <div className="about-pipeline">
-            <AboutPipelineStep icon={<Network size={18} />} num="01" title="ToN-IoT Dataset" desc="2.1M+ records from heterogeneous IoT devices across 5 device types and 6 attack classes" />
-            <AboutPipelineStep icon={<Cpu size={18} />} num="02" title="GWO Feature Selection" desc="Grey Wolf Optimizer reduces 46 raw features to 14 optimal, reducing dimensionality by 70%" />
-            <AboutPipelineStep icon={<Brain size={18} />} num="03" title="BiLSTM Detection Model" desc="Bidirectional LSTM trained on selected features achieves 96.8% F1 score with 2.2% false positive rate" />
+            <AboutPipelineStep icon={<Network size={18} />} num="01" title="ToN-IoT Dataset" desc="Benchmark IoT telemetry dataset with heterogeneous devices across 5 device types and 6 attack classes" />
+            <AboutPipelineStep icon={<Cpu size={18} />} num="02" title="GWO Feature Selection" desc="Grey Wolf Optimizer reduces 46 raw features to 14, reducing dimensionality by ~70%" />
+            <AboutPipelineStep icon={<Brain size={18} />} num="03" title="BiLSTM Detection Model" desc="Bidirectional LSTM trained on selected features for sequence-based intrusion detection" />
             <AboutPipelineStep icon={<Radio size={18} />} num="04" title="Federated Learning" desc="Non-IID clients train locally via Flower framework, preserving data sovereignty at each defence node" />
             <AboutPipelineStep icon={<Eye size={18} />} num="05" title="XAI Explanations" desc="SHAP values provide per-detection feature attribution for operator transparency" />
-            <AboutPipelineStep icon={<Link2 size={18} />} num="06" title="Blockchain Trust Layer" desc="Model updates are hashed, scored, and validated on-chain; poisoned nodes are blocked before aggregation" />
+            <AboutPipelineStep icon={<Link2 size={18} />} num="06" title="Blockchain Trust Layer" desc="Model updates are hashed, scored, and validated; poisoned nodes are blocked before aggregation" />
           </div>
         </div>
       </div>

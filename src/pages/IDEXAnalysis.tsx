@@ -19,9 +19,9 @@ export default function IDEXAnalysis() {
     void load();
   }, []);
 
-  const f1 = model?.f1_score ?? 0.96;
-  const fpr = model?.false_positive_rate ?? 0.022;
-  const accuracy = model?.val_acc ?? 0.97;
+  const f1 = model?.f1_score ?? 0;
+  const fpr = model?.false_positive_rate ?? 0;
+  const accuracy = model?.val_acc ?? 0;
   const features = dataset?.features_after_gwo ?? 14;
 
   return (
@@ -48,9 +48,9 @@ export default function IDEXAnalysis() {
       </div>
 
       <div className="grid grid-cols-4" style={{ marginBottom: 20 }}>
-        <StatCard label="Detection F1 Score" value={`${(f1 * 100).toFixed(1)}%`} icon={<Target size={20} />} trend={{ value: "BiLSTM", up: true }} accent="success" />
-        <StatCard label="False Positive Rate" value={`${(fpr * 100).toFixed(1)}%`} icon={<AlertTriangle size={20} />} trend={{ value: "Low alert fatigue", up: false }} accent="warning" />
-        <StatCard label="Model Accuracy" value={`${(accuracy * 100).toFixed(1)}%`} icon={<TrendingUp size={20} />} trend={{ value: "Validated", up: true }} accent="primary" />
+        <StatCard label="Detection F1 Score" value={f1 > 0 ? `${(f1 * 100).toFixed(1)}%` : "Demo"} icon={<Target size={20} />} trend={{ value: "BiLSTM", up: true }} accent="success" />
+        <StatCard label="False Positive Rate" value={fpr > 0 ? `${(fpr * 100).toFixed(1)}%` : "Demo"} icon={<AlertTriangle size={20} />} trend={{ value: "Target: low", up: false }} accent="warning" />
+        <StatCard label="Model Accuracy" value={accuracy > 0 ? `${(accuracy * 100).toFixed(1)}%` : "Demo"} icon={<TrendingUp size={20} />} trend={{ value: "Prototype", up: true }} accent="primary" />
         <StatCard label="Features Selected" value={features} icon={<Gauge size={20} />} trend={{ value: "via GWO", up: true }} accent="primary" />
       </div>
 
@@ -62,7 +62,7 @@ export default function IDEXAnalysis() {
           <IDEXUseCase icon={<Plane size={22} />} tag="Air Force" title="Air Base Perimeter Defense" challenge="Detecting intrusions across airfield access control and camera networks" solution="BiLSTM detects unauthorized access, brute force, and firmware tampering in real time. SHAP explanations give base security operators verifiable evidence for each alert." metrics={["Access control", "Camera monitoring", "Explainable alerts"]} />
           <IDEXUseCase icon={<Bot size={22} />} tag="Robotics" title="Autonomous Systems Integrity" challenge="Preventing adversarial manipulation of shared models across drone/robot fleets" solution="Blockchain validation gate rejects poisoned model updates. Compromised autonomous units are quarantined before their updates reach the shared global model." metrics={["Byzantine defense", "Node quarantine", "Immutable audit"]} />
           <IDEXUseCase icon={<Radio size={22} />} tag="Tactical" title="Field Tactical Network IDS" challenge="Operating intrusion detection in disconnected, low-bandwidth battlefield conditions" solution="Federated learning transmits only compact model updates, not raw data. Each field unit trains locally and contributes when connectivity allows." metrics={["Edge-native", "Intermittent sync", "OPSEC preserved"]} />
-          <IDEXUseCase icon={<Cpu size={22} />} tag="Infrastructure" title="Critical Infrastructure SCADA" challenge="Detecting anomalies in power grid and industrial control traffic" solution="GWO reduces 46 features to 14 for efficient edge deployment. BiLSTM achieves 96.8% F1 with 2.2% false positive rate, minimizing operator alert fatigue." metrics={["SCADA-aware", "Low FPR", "Edge-deployable"]} />
+          <IDEXUseCase icon={<Cpu size={22} />} tag="Infrastructure" title="Critical Infrastructure SCADA" challenge="Detecting anomalies in power grid and industrial control traffic" solution="GWO reduces 46 features to 14 for efficient edge deployment. BiLSTM detects anomalies in SCADA traffic with explainable evidence for each alert." metrics={["SCADA-aware", "Explainable", "Edge-deployable"]} />
         </div>
       </div>
 
@@ -84,7 +84,7 @@ export default function IDEXAnalysis() {
             <ComplianceItem label="Audit Trail" status="Met" detail="Blockchain ledger provides immutable update history" />
             <ComplianceItem label="Explainability" status="Met" detail="SHAP-based per-detection evidence" />
             <ComplianceItem label="Adversarial Defense" status="Met" detail="Poison-attack blocking with node quarantine" />
-            <ComplianceItem label="Low False Positives" status="Met" detail="2.2% FPR reduces operator fatigue" />
+            <ComplianceItem label="Low False Positives" status="Target" detail="Designed to minimize operator alert fatigue" />
             <ComplianceItem label="Disconnected Ops" status="Met" detail="Federated learning works offline" />
           </div>
         </div>

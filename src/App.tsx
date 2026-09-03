@@ -15,6 +15,7 @@ import Blockchain from "./pages/Blockchain";
 import About from "./pages/About";
 import IDEXAnalysis from "./pages/IDEXAnalysis";
 import Login from "./pages/Login";
+import Landing from "./pages/Landing";
 import PresentationMode from "./components/PresentationMode";
 import { useAuth } from "./lib/auth";
 import { Loader as Loader2 } from "lucide-react";
@@ -24,6 +25,7 @@ export default function App() {
   const location = useLocation();
   const [presenting, setPresenting] = useState(false);
   const isAuthRoute = location.pathname === "/login" || location.pathname === "/signup";
+  const isLanding = location.pathname === "/landing" || location.pathname === "/";
 
   useEffect(() => {
     if (presenting && isAuthRoute) setPresenting(false);
@@ -38,21 +40,30 @@ export default function App() {
     );
   }
 
-  if (!session && !isAuthRoute) {
-    return <Navigate to="/login" replace />;
+  // Landing page is always public
+  if (location.pathname === "/landing") {
+    return <Landing />;
   }
 
-  if (session && isAuthRoute) {
-    return <Navigate to="/" replace />;
+  // Root: if not logged in, show landing; if logged in, show dashboard
+  if (location.pathname === "/" && !session) {
+    return <Landing />;
   }
 
+  // Auth routes
   if (isAuthRoute) {
+    if (session) return <Navigate to="/" replace />;
     return (
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Login />} />
       </Routes>
     );
+  }
+
+  // All other routes require auth
+  if (!session && !isLanding) {
+    return <Navigate to="/login" replace />;
   }
 
   return (

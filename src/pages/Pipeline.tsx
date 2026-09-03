@@ -7,10 +7,10 @@ import { supabase, BiLSTMModel, GWOOptimization, PipelineDataset } from "../lib/
 const tooltipStyle = { background: "var(--bg-elevated)", border: "1px solid var(--border-default)", borderRadius: "8px", fontSize: "12px", color: "var(--text-primary)" };
 
 const demoDataset: PipelineDataset = {
-  id: "demo", dataset_name: "ToN-IoT", source: "Telemetry and Network IoT Dataset", total_records: 2110437,
+  id: "demo", dataset_name: "ToN-IoT", source: "Telemetry and Network IoT Dataset", total_records: 0,
   device_types: ["Industrial gateway", "IP camera", "Environmental sensor", "Smart meter", "Access control"],
   attack_classes: ["DDoS", "DoS", "Reconnaissance", "Injection", "Credential theft", "Normal"], normal_ratio: 0.42, attack_ratio: 0.58,
-  features_raw: 46, features_after_gwo: 14, split_strategy: "Non-IID by device type", non_iid_score: 0.74, status: "ready", created_at: ""
+  features_raw: 46, features_after_gwo: 14, split_strategy: "Non-IID by device type", non_iid_score: 0.74, status: "demo data", created_at: ""
 };
 const demoGwo: GWOOptimization[] = Array.from({ length: 10 }, (_, i) => ({
   id: `gwo-${i}`, iteration: i + 1, alpha_score: 0.71 + i * 0.023, beta_score: 0.68 + i * 0.024, delta_score: 0.64 + i * 0.025,
@@ -62,10 +62,10 @@ export default function Pipeline() {
     </div>
 
     <div className="grid grid-cols-4" style={{ marginBottom: 20 }}>
-      <StatCard label="Records processed" value={`${(dataset.total_records / 1000000).toFixed(2)}M`} icon={<Database size={20} />} trend={{ value: "ToN-IoT", up: true }} accent="primary" />
+      <StatCard label="Records processed" value={dataset.total_records > 0 ? `${(dataset.total_records / 1000000).toFixed(2)}M` : "Demo"} icon={<Database size={20} />} trend={{ value: "ToN-IoT", up: true }} accent="primary" />
       <StatCard label="Feature reduction" value={`${reduction}%`} icon={<SlidersHorizontal size={20} />} trend={{ value: `${dataset.features_raw} → ${dataset.features_after_gwo}`, up: true }} accent="success" />
       <StatCard label="Non-IID skew score" value={dataset.non_iid_score.toFixed(2)} icon={<Gauge size={20} />} trend={{ value: "by device type", up: true }} accent="warning" />
-      <StatCard label="Validation F1 score" value={`${(latestModel.f1_score * 100).toFixed(1)}%`} icon={<Target size={20} />} trend={{ value: "BiLSTM", up: true }} accent="success" />
+      <StatCard label="Validation F1 score" value={`${(latestModel.f1_score * 100).toFixed(1)}%`} icon={<Target size={20} />} trend={{ value: "Demo data", up: true }} accent="success" />
     </div>
 
     <div className="grid grid-cols-2" style={{ marginBottom: 20 }}>

@@ -125,6 +125,9 @@ export default function Login() {
               <span>Need operator access? <button type="button" onClick={() => navigate("/signup")}>Request account</button></span>
             )}
           </div>
+          <div className="auth-back-landing">
+            <button type="button" onClick={() => navigate("/landing")}>&larr; Back to SentinelIoT overview</button>
+          </div>
         </form>
 
         <div className="auth-footer">
