@@ -1,4 +1,4 @@
-import { ShieldCheck, Cpu, Brain, Link2, Crosshair, FileText, Eye, Network, Lock, Radio, Satellite, Plane, Ship, Bot } from "lucide-react";
+import { ShieldCheck, Cpu, Brain, Link2, Crosshair, FileText, Eye, Network, Lock, Radio, Satellite, Plane, Ship, Bot, ArrowRight, Database, Filter, ShieldAlert, Server, Boxes } from "lucide-react";
 
 export default function About() {
   return (
@@ -46,6 +46,63 @@ export default function About() {
             <AboutPipelineStep icon={<Radio size={18} />} num="04" title="Federated Learning" desc="Non-IID clients train locally via Flower framework, preserving data sovereignty at each defence node" />
             <AboutPipelineStep icon={<Eye size={18} />} num="05" title="XAI Explanations" desc="SHAP values provide per-detection feature attribution for operator transparency" />
             <AboutPipelineStep icon={<Link2 size={18} />} num="06" title="Blockchain Trust Layer" desc="Model updates are hashed, scored, and validated on-chain; poisoned nodes are blocked before aggregation" />
+          </div>
+        </div>
+      </div>
+
+      <div className="card" style={{ marginBottom: 20 }}>
+        <div className="card-header"><div><div className="card-title">System Architecture Block Diagram</div><div className="card-subtitle">Data flow from raw IoT telemetry through detection, federation, and trust validation</div></div></div>
+        <div className="block-diagram">
+          <div className="bd-row">
+            <div className="bd-layer-label">Edge Layer</div>
+            <div className="bd-blocks">
+              <BlockBox icon={<Cpu size={18} />} title="IoT Devices" sub="Cameras · Sensors · Access Control · Robots" tone="primary" />
+              <BlockBox icon={<Database size={18} />} title="Local Data" sub="ToN-IoT telemetry (non-IID)" tone="primary" />
+              <BlockBox icon={<Filter size={18} />} title="GWO Feature Selection" sub="46 → 14 features (70% reduction)" tone="success" />
+              <BlockBox icon={<Brain size={18} />} title="BiLSTM Local Training" sub="Per-device model update" tone="success" />
+            </div>
+          </div>
+
+          <div className="bd-arrow-col">
+            <ArrowRight size={20} className="bd-arrow-icon" />
+            <span className="bd-arrow-label">Model updates only — no raw data leaves the edge</span>
+          </div>
+
+          <div className="bd-row">
+            <div className="bd-layer-label">Federation Layer</div>
+            <div className="bd-blocks">
+              <BlockBox icon={<Radio size={18} />} title="Flower Server" sub="FedBN aggregation" tone="accent" />
+              <BlockBox icon={<Boxes size={18} />} title="Global Model" sub="Aggregated weights" tone="accent" />
+              <BlockBox icon={<Eye size={18} />} title="XAI / SHAP" sub="Per-detection evidence" tone="warning" />
+              <BlockBox icon={<ShieldAlert size={18} />} title="Intrusion Detection" sub="Real-time alerts" tone="error" />
+            </div>
+          </div>
+
+          <div className="bd-arrow-col">
+            <ArrowRight size={20} className="bd-arrow-icon" />
+            <span className="bd-arrow-label">Each update validated on-chain before aggregation</span>
+          </div>
+
+          <div className="bd-row">
+            <div className="bd-layer-label">Trust Layer</div>
+            <div className="bd-blocks">
+              <BlockBox icon={<Link2 size={18} />} title="Blockchain Validator" sub="Hash · score · record" tone="primary" />
+              <BlockBox icon={<ShieldCheck size={18} />} title="Poison Detection" sub="Cosine distance + reputation" tone="error" />
+              <BlockBox icon={<Lock size={18} />} title="Node Blocking" sub="Quarantine compromised nodes" tone="error" />
+              <BlockBox icon={<Server size={18} />} title="Immutable Ledger" sub="Audit trail for all updates" tone="primary" />
+            </div>
+          </div>
+
+          <div className="bd-arrow-col">
+            <ArrowRight size={20} className="bd-arrow-icon" />
+            <span className="bd-arrow-label">Validated model + explainable alerts delivered to operator</span>
+          </div>
+
+          <div className="bd-row">
+            <div className="bd-layer-label">Operator Layer</div>
+            <div className="bd-blocks">
+              <BlockBox icon={<Crosshair size={18} />} title="Defence Operator Dashboard" sub="This application — real-time monitoring" tone="success" />
+            </div>
           </div>
         </div>
       </div>
@@ -116,6 +173,26 @@ function IDEXCard({ icon, title, desc }: { icon: React.ReactNode; title: string;
       <div className="idex-card-icon">{icon}</div>
       <strong>{title}</strong>
       <p>{desc}</p>
+    </div>
+  );
+}
+
+function BlockBox({ icon, title, sub, tone }: { icon: React.ReactNode; title: string; sub: string; tone: "primary" | "success" | "accent" | "warning" | "error" }) {
+  const toneColors: Record<string, { bg: string; color: string }> = {
+    primary: { bg: "rgba(59,130,246,.12)", color: "var(--c-primary-400)" },
+    success: { bg: "rgba(16,185,129,.12)", color: "var(--c-success-400)" },
+    accent: { bg: "rgba(6,182,212,.12)", color: "var(--c-accent-400)" },
+    warning: { bg: "rgba(245,158,11,.12)", color: "var(--c-warning-400)" },
+    error: { bg: "rgba(239,68,68,.12)", color: "var(--c-error-400)" },
+  };
+  const c = toneColors[tone];
+  return (
+    <div className="bd-box" style={{ borderColor: c.bg }}>
+      <div className="bd-box-icon" style={{ background: c.bg, color: c.color }}>{icon}</div>
+      <div>
+        <strong>{title}</strong>
+        <span>{sub}</span>
+      </div>
     </div>
   );
 }

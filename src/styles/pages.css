@@ -1113,6 +1113,26 @@
 .compliance-info strong { display: block; font-size: 13px; }
 .compliance-info span { font-size: 11px; color: var(--text-tertiary); }
 
+/* Block diagram */
+.block-diagram { display: flex; flex-direction: column; gap: 0; }
+.bd-row { display: flex; align-items: stretch; gap: 14px; padding: 14px 0; }
+.bd-layer-label { width: 110px; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; font: 11px var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); text-align: right; }
+.bd-blocks { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; }
+.bd-box { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--bg-surface-2); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); min-width: 200px; flex: 1 1 200px; transition: border-color .2s ease, transform .2s ease; }
+.bd-box:hover { border-color: var(--border-default); transform: translateY(-2px); }
+.bd-box-icon { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); flex-shrink: 0; }
+.bd-box strong { display: block; font-size: 13px; color: var(--text-primary); }
+.bd-box span { display: block; font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+.bd-arrow-col { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 4px 0; }
+.bd-arrow-icon { color: var(--c-primary-400); transform: rotate(90deg); flex-shrink: 0; }
+.bd-arrow-label { font-size: 11px; color: var(--text-muted); font-style: italic; }
+@media (max-width: 768px) {
+  .bd-row { flex-direction: column; gap: 8px; }
+  .bd-layer-label { width: 100%; justify-content: flex-start; text-align: left; }
+  .bd-blocks { flex-direction: column; }
+  .bd-box { flex: 1 1 100%; }
+}
+
 /* Presentation mode */
 .pres-overlay { position: fixed; inset: 0; z-index: 100; pointer-events: none; }
 .pres-bar { position: absolute; top: 0; left: 0; right: 0; height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: rgba(11,17,32,.95); border-bottom: 1px solid var(--border-default); backdrop-filter: blur(12px); pointer-events: auto; }
