@@ -1,13 +1,17 @@
 import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
-import Header from "./Header";
 
-export default function AppShell({ children }: { children: ReactNode }) {
+interface AppShellProps {
+  children: ReactNode;
+  headerSlot: ReactNode;
+}
+
+export default function AppShell({ children, headerSlot }: AppShellProps) {
   return (
     <div className="app-layout">
       <Sidebar />
       <div className="main-area">
-        <Header />
+        {headerSlot}
         <main className="main-content">{children}</main>
       </div>
     </div>

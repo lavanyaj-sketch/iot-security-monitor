@@ -11,11 +11,14 @@ import {
   Workflow,
   Sparkles,
   Link2,
+  Info,
+  Crosshair,
 } from "lucide-react";
 import clsx from "clsx";
 
 const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "/about", label: "About Project", icon: Info },
   { to: "/devices", label: "Devices", icon: Cpu },
   { to: "/threats", label: "Threats", icon: ShieldAlert },
   { to: "/network", label: "Network", icon: Network },
@@ -23,6 +26,7 @@ const nav = [
   { to: "/federated-learning", label: "Federated Learning", icon: Brain },
   { to: "/xai", label: "XAI Explainability", icon: Sparkles },
   { to: "/blockchain", label: "Trust & Blocking", icon: Link2 },
+  { to: "/idex", label: "iDEX Defence Analysis", icon: Crosshair },
   { to: "/alerts", label: "Alerts", icon: Bell },
   { to: "/settings", label: "Settings", icon: Settings },
 ];
@@ -36,7 +40,7 @@ export default function Sidebar() {
         </div>
         <div>
           <div className="sidebar-brand-name">SentinelIoT</div>
-          <div className="sidebar-brand-sub">Security Monitor</div>
+          <div className="sidebar-brand-sub">Defence Security Monitor</div>
         </div>
       </div>
 
