@@ -1,4 +1,4 @@
-import { ShieldCheck, Cpu, Brain, Link2, Crosshair, FileText, Eye, Network, Lock, Radio, Satellite, Plane, Ship, Bot, ArrowRight, Database, Filter, ShieldAlert, Server, Boxes } from "lucide-react";
+import { ShieldCheck, Cpu, Brain, Link2, Crosshair, FileText, Eye, Network, Lock, Radio, Satellite, Plane, Ship, Bot, ArrowRight, Database, Filter, ShieldAlert, Server, Boxes, GraduationCap, ChevronDown } from "lucide-react";
 
 export default function About() {
   return (
@@ -62,12 +62,7 @@ export default function About() {
               <BlockBox icon={<Brain size={18} />} title="BiLSTM Local Training" sub="Per-device model update" tone="success" />
             </div>
           </div>
-
-          <div className="bd-arrow-col">
-            <ArrowRight size={20} className="bd-arrow-icon" />
-            <span className="bd-arrow-label">Model updates only — no raw data leaves the edge</span>
-          </div>
-
+          <div className="bd-arrow-col"><ArrowRight size={20} className="bd-arrow-icon" /><span className="bd-arrow-label">Model updates only — no raw data leaves the edge</span></div>
           <div className="bd-row">
             <div className="bd-layer-label">Federation Layer</div>
             <div className="bd-blocks">
@@ -77,12 +72,7 @@ export default function About() {
               <BlockBox icon={<ShieldAlert size={18} />} title="Intrusion Detection" sub="Real-time alerts" tone="error" />
             </div>
           </div>
-
-          <div className="bd-arrow-col">
-            <ArrowRight size={20} className="bd-arrow-icon" />
-            <span className="bd-arrow-label">Each update validated on-chain before aggregation</span>
-          </div>
-
+          <div className="bd-arrow-col"><ArrowRight size={20} className="bd-arrow-icon" /><span className="bd-arrow-label">Each update validated on-chain before aggregation</span></div>
           <div className="bd-row">
             <div className="bd-layer-label">Trust Layer</div>
             <div className="bd-blocks">
@@ -92,12 +82,7 @@ export default function About() {
               <BlockBox icon={<Server size={18} />} title="Immutable Ledger" sub="Audit trail for all updates" tone="primary" />
             </div>
           </div>
-
-          <div className="bd-arrow-col">
-            <ArrowRight size={20} className="bd-arrow-icon" />
-            <span className="bd-arrow-label">Validated model + explainable alerts delivered to operator</span>
-          </div>
-
+          <div className="bd-arrow-col"><ArrowRight size={20} className="bd-arrow-icon" /><span className="bd-arrow-label">Validated model + explainable alerts delivered to operator</span></div>
           <div className="bd-row">
             <div className="bd-layer-label">Operator Layer</div>
             <div className="bd-blocks">
@@ -107,8 +92,27 @@ export default function About() {
         </div>
       </div>
 
-      <div className="card">
-        <div className="card-header"><div><div className="card-title">iDEX defence applicability</div><div className="card-subtitle">Direct use cases for the Innovations for Defence Excellence initiative</div></div></div>
+      {/* Meet the Research Lead */}
+      <div className="card about-researcher-card" style={{ marginBottom: 20 }}>
+        <div className="card-header"><div><div className="card-title">Meet the Research Lead</div><div className="card-subtitle">The person behind SentinelIoT</div></div></div>
+        <div className="about-researcher">
+          <div className="about-researcher-avatar"><GraduationCap size={36} /></div>
+          <div className="about-researcher-info">
+            <h3>Lavanya J</h3>
+            <p className="about-researcher-role">Founder & Research Lead, SentinelIoT</p>
+            <p className="about-researcher-desc">Developing privacy-preserving AI security for defence-oriented IoT environments.</p>
+            <div className="about-researcher-details">
+              <div className="about-researcher-detail"><strong>PhD</strong><span>Intrusion Detection in IoT using Federated Learning</span></div>
+              <div className="about-researcher-detail"><strong>Research Areas</strong><span>IoT Security · Federated Learning · AI/ML · Cybersecurity</span></div>
+              <div className="about-researcher-detail"><strong>Education</strong><span>B.Tech · M.Tech · PhD (Pursuing)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Where SentinelIoT could actually be useful */}
+      <div className="card" style={{ marginBottom: 20 }}>
+        <div className="card-header"><div><div className="card-title">Where SentinelIoT could actually be useful</div><div className="card-subtitle">Real-world defence scenarios this system is designed to address</div></div></div>
         <div className="grid grid-cols-3">
           <IDEXCard icon={<Satellite size={22} />} title="Border Surveillance IoT" desc="Deploy across border monitoring sensor networks. Detect reconnaissance and tampering attempts on camera and sensor nodes without transmitting raw footage to a central server." />
           <IDEXCard icon={<Ship size={22} />} title="Naval Fleet IoT" desc="Protect shipboard IoT sensors and navigation systems. Federated learning lets each vessel train on its own telemetry while contributing to a shared threat model." />
@@ -119,21 +123,52 @@ export default function About() {
         </div>
       </div>
 
-      <div className="card">
-        <div className="card-header"><div><div className="card-title">For judges and evaluators</div><div className="card-subtitle">What to look for during the demo</div></div></div>
-        <div className="grid grid-cols-2">
-          <div className="about-judge-item">
-            <FileText size={18} />
-            <div>
-              <strong>PDF Report Export</strong>
-              <p>Generate a complete system status report as a PDF directly from the dashboard. Use the "Export Report" button in the header to download a formatted snapshot of all metrics, threats, and pipeline status.</p>
-            </div>
+      {/* Technical Report + Demonstration Mode */}
+      <div className="grid grid-cols-2" style={{ marginBottom: 20 }}>
+        <div className="card about-evidence-card">
+          <div className="about-evidence-icon"><FileText size={24} /></div>
+          <strong>Technical Report</strong>
+          <p>Generate a report containing system architecture, model performance, threat detections, and validation results.</p>
+        </div>
+        <div className="card about-evidence-card">
+          <div className="about-evidence-icon play"><Eye size={24} /></div>
+          <strong>Demonstration Mode</strong>
+          <p>Walk through the complete detection pipeline from IoT telemetry to intrusion detection, federated learning, explainability, and response.</p>
+        </div>
+      </div>
+
+      {/* Bottom flow section */}
+      <div className="card about-bottom-flow">
+        <div className="about-flow-section">
+          <div className="about-flow-label">Target Defence Use Cases</div>
+          <div className="about-flow-tags">
+            <span>Border Surveillance</span><span className="flow-pipe">|</span>
+            <span>Naval IoT</span><span className="flow-pipe">|</span>
+            <span>Air Base Security</span>
           </div>
-          <div className="about-judge-item">
-            <Eye size={18} />
+          <div className="about-flow-tags">
+            <span>Autonomous Systems</span><span className="flow-pipe">|</span>
+            <span>Tactical Networks</span><span className="flow-pipe">|</span>
+            <span>Critical Infrastructure</span>
+          </div>
+        </div>
+        <div className="about-flow-arrow"><ChevronDown size={28} /></div>
+        <div className="about-flow-section">
+          <div className="about-flow-label">Demonstration & Evidence</div>
+          <div className="about-flow-tags">
+            <span>Technical Report</span><span className="flow-pipe">|</span>
+            <span>Live Demonstration</span>
+          </div>
+        </div>
+        <div className="about-flow-arrow"><ChevronDown size={28} /></div>
+        <div className="about-flow-section">
+          <div className="about-flow-label">Research Lead</div>
+          <div className="about-flow-researcher">
+            <div className="about-flow-avatar"><GraduationCap size={22} /></div>
             <div>
-              <strong>Demo Presentation Mode</strong>
-              <p>Activate presentation mode from the header to auto-cycle through every pipeline stage with guided annotations. Designed for live demonstrations to iDEX evaluators.</p>
+              <strong>Lavanya J</strong>
+              <p>Founder & Research Lead — SentinelIoT</p>
+              <p className="about-flow-sub">PhD Researcher | IoT Security | Federated Learning</p>
             </div>
           </div>
         </div>
@@ -143,40 +178,14 @@ export default function About() {
 }
 
 function AboutPoint({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <div className="about-point">
-      <div className="about-point-icon">{icon}</div>
-      <div>
-        <strong>{title}</strong>
-        <p>{desc}</p>
-      </div>
-    </div>
-  );
+  return <div className="about-point"><div className="about-point-icon">{icon}</div><div><strong>{title}</strong><p>{desc}</p></div></div>;
 }
-
 function AboutPipelineStep({ icon, num, title, desc }: { icon: React.ReactNode; num: string; title: string; desc: string }) {
-  return (
-    <div className="about-pipeline-step">
-      <div className="about-pipeline-step-icon">{icon}</div>
-      <span className="about-pipeline-step-num">{num}</span>
-      <div>
-        <strong>{title}</strong>
-        <p>{desc}</p>
-      </div>
-    </div>
-  );
+  return <div className="about-pipeline-step"><div className="about-pipeline-step-icon">{icon}</div><span className="about-pipeline-step-num">{num}</span><div><strong>{title}</strong><p>{desc}</p></div></div>;
 }
-
 function IDEXCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <div className="idex-card">
-      <div className="idex-card-icon">{icon}</div>
-      <strong>{title}</strong>
-      <p>{desc}</p>
-    </div>
-  );
+  return <div className="idex-card"><div className="idex-card-icon">{icon}</div><strong>{title}</strong><p>{desc}</p></div>;
 }
-
 function BlockBox({ icon, title, sub, tone }: { icon: React.ReactNode; title: string; sub: string; tone: "primary" | "success" | "accent" | "warning" | "error" }) {
   const toneColors: Record<string, { bg: string; color: string }> = {
     primary: { bg: "rgba(59,130,246,.12)", color: "var(--c-primary-400)" },
@@ -186,13 +195,5 @@ function BlockBox({ icon, title, sub, tone }: { icon: React.ReactNode; title: st
     error: { bg: "rgba(239,68,68,.12)", color: "var(--c-error-400)" },
   };
   const c = toneColors[tone];
-  return (
-    <div className="bd-box" style={{ borderColor: c.bg }}>
-      <div className="bd-box-icon" style={{ background: c.bg, color: c.color }}>{icon}</div>
-      <div>
-        <strong>{title}</strong>
-        <span>{sub}</span>
-      </div>
-    </div>
-  );
+  return <div className="bd-box" style={{ borderColor: c.bg }}><div className="bd-box-icon" style={{ background: c.bg, color: c.color }}>{icon}</div><div><strong>{title}</strong><span>{sub}</span></div></div>;
 }

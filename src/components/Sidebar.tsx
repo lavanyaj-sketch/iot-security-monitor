@@ -68,6 +68,13 @@ export default function Sidebar() {
             <div className="sidebar-status-value">All monitors running</div>
           </div>
         </div>
+        <div className="sidebar-researcher">
+          <div className="sidebar-researcher-avatar">LJ</div>
+          <div>
+            <div className="sidebar-researcher-name">Lavanya J</div>
+            <div className="sidebar-researcher-role">Research Lead</div>
+          </div>
+        </div>
       </div>
     </aside>
   );

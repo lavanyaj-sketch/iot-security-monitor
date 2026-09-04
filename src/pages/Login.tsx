@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ShieldCheck, Mail, Lock, Eye, EyeOff, CircleAlert as AlertCircle, Loader as Loader2 } from "lucide-react";
+import { ShieldCheck, Shield, Radio, Cpu, Network, Lock, Mail, Eye, EyeOff, CircleAlert as AlertCircle, Loader as Loader2 } from "lucide-react";
 import { supabase } from "../lib/supabase";
 
 export default function Login() {
@@ -46,6 +46,29 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-bg-grid" />
+      <div className="auth-bg-orbs">
+        <div className="auth-orb auth-orb-1" />
+        <div className="auth-orb auth-orb-2" />
+        <div className="auth-orb auth-orb-3" />
+      </div>
+      <div className="auth-bg-particles">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <span key={i} className="auth-particle" style={{
+            left: `${(i * 37) % 100}%`,
+            top: `${(i * 53) % 100}%`,
+            animationDelay: `${(i * 0.7) % 8}s`,
+            animationDuration: `${8 + (i % 5)}s`,
+          }} />
+        ))}
+      </div>
+      <div className="auth-bg-icons">
+        <div className="auth-bg-icon" style={{ top: "12%", left: "8%", animationDelay: "0s" }}><Cpu size={28} /></div>
+        <div className="auth-bg-icon" style={{ top: "22%", right: "10%", animationDelay: "1.5s" }}><Radio size={24} /></div>
+        <div className="auth-bg-icon" style={{ bottom: "18%", left: "12%", animationDelay: "3s" }}><Network size={26} /></div>
+        <div className="auth-bg-icon" style={{ bottom: "28%", right: "8%", animationDelay: "4.5s" }}><Shield size={22} /></div>
+        <div className="auth-bg-icon" style={{ top: "45%", left: "5%", animationDelay: "2s" }}><Lock size={20} /></div>
+        <div className="auth-bg-icon" style={{ top: "60%", right: "6%", animationDelay: "5s" }}><ShieldCheck size={24} /></div>
+      </div>
       <div className="auth-card">
         <div className="auth-brand">
           <div className="auth-logo">
